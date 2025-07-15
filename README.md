@@ -2,7 +2,7 @@
 
 This repository was developed by **Themrblank**.
 
-# Description
+## Description
 
 This program allows you to **add / list** books.
 
@@ -12,10 +12,10 @@ The purpose of the project is learning this conditions:
 2 - `lists`, dictionary (`dicts`) and other variables.
 3 - define (`def`) functions, function calls.
 
-# Required Libraries
+## Required Libraries
 
 This program **does not** require any libraries right now.
 
-# Usage
+## Usage
 
 When you start **the program will guide you** with the process.
