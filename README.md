@@ -2,7 +2,7 @@
 
 This repository was developed by **Themrblank**.
 
-# Description
+## Description
 
 This program allows you to **add / list / search** books in your own library.
 
@@ -14,13 +14,13 @@ The purpose of the project is learning conditions mentioned below:
 4 - `While` loops and user interaction handling.
 5 - One lined `if / else` loops.
 
-# Required Libraries
+## Required Libraries
 
 This version uses only one standard (built-in) Python library:
 
 - Time: Used for better user interactions.
 
-# Usage
+## Usage
 
 When you start it, **the program will guide you** with the process.
 
