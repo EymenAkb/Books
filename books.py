@@ -1,58 +1,65 @@
-library = [{'Name': '1984', 'Page': 182, 'Already read? ': True},
-           {'Name': 'Çocuklar', 'Page': 176, 'Already read? ': False}
-           ]
+import time
 
-def add_book():
+def add_book(library):
     nameb = input("What is the name of the book: ")
-    pageb = (input("How many pages are there: ")) 
-    try:
-        int(pageb)
-    except ValueError:
-        print("Please enter a number!")
-        exit()
+    while True:
+        pageb = input("How many pages are there: ")
+        try:
+            pageb = int(pageb)
+            break
+        except ValueError:
+            print("Please enter a number!")
+            time.sleep(0.5)
 
-    readb = input("did you read this book (yes / no)").lower()
-    if readb in ['yes', 'no']:
-        book = {'Name': nameb, 'Page': pageb, 'Already read? ': True if 'yes' else False}
-        library.append(book)
-        return library
-    else:
-        print("Please follow the instructions")
-        return library
+    while True:
+        readb = input("did you read this book (yes / no)").lower()
+        if readb in ['yes', 'no']:
+            book = {'name': nameb, 'page': pageb, 'already read': readb}
+            library.append(book)
+            return library
+        else:
+            print("Please follow the instructions")
 
 def list_book(library):
-    count = 1
-    for i in library:
-        print(f'\n')
-        print(f'{count}' + ':')
-        count = count + 1
-        print('Name:' + i['Name'])
-        print('Page:' + str(i['Page']))
-        print('Already read: ' + ('yes' if i['Already read? '] is True else 'no'))
+    if not library:
+        print('\n Your library is empty')
+        time.sleep(1)
+    else:
+        for count, i in enumerate(library, start=1):
+            time.sleep(0.5)
+            print(f'\n')
+            print(f'{count}' + ':')
+            print('Name:' + i['name'])
+            print('Page:', i['page'])
+            print('Already read: ' + i['already read'])
 
 
 def main():
+    library = []
+
     while True:
         print('''
-            Welcome to book list app please choose the process
-            click 1 for adding book
-            click 2 for listing book
-            click 0 to quit
+    Welcome to book list app please choose the process
+    click 1 for adding book
+    click 2 for listing book
+    click 0 to quit
         ''')
         try:
-            uinput = int(input(''))
+            uinput = int(input('    '))
             if uinput == 1:
-                add_book()
-            if uinput == 2:
+                add_book(library)
+            elif uinput == 2:
                 list_book(library)
-            if uinput == 0:
+                input(f'\n Press enter key to contunie ')
+            elif uinput == 0:
                 print('Have a great day! ')
                 break
             else:
-                break
+                print('Please enter valid input!')
+                time.sleep(2)
         except ValueError:
-            print('Please enter a number')
-            exit()
+            print('Please enter a valid number')
+            time.sleep(2)
 
 if __name__ == '__main__':
     main()
