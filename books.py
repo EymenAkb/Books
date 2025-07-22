@@ -33,7 +33,42 @@ def list_book(library):
             print('Page:', i['page'])
             print('Already read: ' + i['already read'])
 
+def find_book(library):
+    if not library:
+        print('\n The library is empty ')
+        time.sleep(1)
+        return
+    found = False
+    while not found:
+        u_input = input('Enter the title of the book (enter quitx for quit): ').strip()
+        if u_input.lower() == 'quitx':
+            break
+        if not u_input:
+            print('Enter title of the book')
+            continue
+        else:
+            try:
+                for count, i in enumerate(library, start=1):
+                    if u_input.lower() == i['name'].lower():
+                        print(f'''
+Search results:
+The name of your book: {i['name']}
+There are {i['page']} pages in searched book
+The book has {'not ' if i['already read'].lower() == 'no' else ''}been read before
+''')
+                        found = True
+                        time.sleep(3)
+                        break
+            except KeyError as e:
+                print(f"Data error: missing key {e} in a book entry.")
+                return
 
+        if not found:
+            print('Book not found in library!')
+            time.sleep(1)
+
+    input('\n Press enter key to continue')
+                
 def main():
     library = []
 
@@ -42,6 +77,7 @@ def main():
     Welcome to book list app please choose the process
     click 1 for adding book
     click 2 for listing book
+    click 3 for search book in books
     click 0 to quit
         ''')
         try:
@@ -51,6 +87,8 @@ def main():
             elif uinput == 2:
                 list_book(library)
                 input(f'\n Press enter key to contunie ')
+            elif uinput == 3:
+                find_book(library)
             elif uinput == 0:
                 print('Have a great day! ')
                 break
