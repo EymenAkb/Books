@@ -13,7 +13,7 @@ This program is a basic console-based library program that allows you to:
 
 The purpose of the project is learning conditions mentioned below:
 
-1 - `Lists`, dictionary (`dicts`) and other variable types.
+1 - `Lists`, dictionary (`dicts`) and other variable types. /n
 2 - Defining functions using `def` and making function calls
 3 - Basic error handling by `try / except`.
 4 - `While` loops and user interaction handling.
