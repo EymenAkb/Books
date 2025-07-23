@@ -68,7 +68,34 @@ The book has {'not ' if i['already read'].lower() == 'no' else ''}been read befo
             time.sleep(1)
 
     input('\n Press enter key to continue')
-                
+
+def del_book(library):
+    if not library:
+        print("Library is empty! ")
+        time.sleep(1)
+        return
+    Found = False
+    while not Found:
+        book = input("Enter the title of the book to be deleted: (enter quitx to quit) ")
+        if book.lower() == 'quitx':
+            break
+        elif not book:
+            print('Enter title of the book')
+            continue
+        else:
+            for index, i in enumerate(library):
+                if i['name'].lower() == book.lower():
+                    library.pop(index)
+                    print(f"{book} was removed successfully!")
+                    Found = True
+                    time.sleep(1)
+                    break
+        if not Found:
+            print(f"There is no book named {book}.")
+    
+    input('Press any key to continue')
+
+
 def main():
     library = []
 
@@ -78,6 +105,7 @@ def main():
     click 1 for adding book
     click 2 for listing book
     click 3 for search book in books
+    click 4 for deleting the book
     click 0 to quit
         ''')
         try:
@@ -89,6 +117,8 @@ def main():
                 input(f'\n Press enter key to contunie ')
             elif uinput == 3:
                 find_book(library)
+            elif uinput == 4:
+                del_book(library)
             elif uinput == 0:
                 print('Have a great day! ')
                 break
