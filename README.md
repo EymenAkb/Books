@@ -13,7 +13,7 @@ This program is a basic console-based library program that allows you to:
 
 The purpose of the project is learning conditions mentioned below:
 
-1 - `Lists`, dictionary (`dicts`) and other variable types. /n
+1 - `Lists`, dictionary (`dicts`) and other variable types.
 2 - Defining functions using `def` and making function calls
 3 - Basic error handling by `try / except`.
 4 - `While` loops and user interaction handling.
@@ -29,6 +29,6 @@ This version uses only one built-in Python library:
 
 When you start the program, **the program will guide you** through the process.
 
-# Note!
+# Note
 
-This program **does not** save your library in your device.
+This program **does not** save your library on your device.
