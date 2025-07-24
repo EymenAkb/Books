@@ -30,6 +30,6 @@ This version uses only one built-in Python library:
 
 When you start the program, **the program will guide you** through the process.
 
-# Note!
+# Note
 
-This program **does not** save your library in your device.
+This program **does not** save your library on your device.
