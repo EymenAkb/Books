@@ -2,6 +2,12 @@ import time
 
 def add_book(library):
     nameb = input("What is the name of the book: ")
+    for i in library:
+        if nameb.lower() == i['name'].lower():
+            print('this book already exists! ')
+            time.sleep(2)
+            return
+        
     while True:
         pageb = input("How many pages are there: ")
         try:
@@ -20,6 +26,7 @@ def add_book(library):
         else:
             print("Please follow the instructions")
 
+
 def list_book(library):
     if not library:
         print('\n Your library is empty')
@@ -32,6 +39,7 @@ def list_book(library):
             print('Name:' + i['name'])
             print('Page:', i['page'])
             print('Already read: ' + i['already read'])
+
 
 def find_book(library):
     if not library:
@@ -69,6 +77,7 @@ The book has {'not ' if i['already read'].lower() == 'no' else ''}been read befo
 
     input('\n Press enter key to continue')
 
+
 def del_book(library):
     if not library:
         print("Library is empty! ")
@@ -92,8 +101,44 @@ def del_book(library):
                     break
         if not Found:
             print(f"There is no book named {book}.")
+            break
     
     input('Press any key to continue')
+
+
+def con_book(library):
+    if not library:
+        print("Your library is empty!")
+        time.sleep(1)
+        return
+    found = False
+    while not found:
+        book = input('Enter the title of the book: (enter quitx for quit) ')
+        if book.lower == 'quitx':
+            break
+        elif not book:
+            print('Enter title of the book')
+            continue
+        else:
+            for n, i in enumerate(library):
+                if i['name'].lower() == book.lower():
+                    found = True
+                    while True:
+                        read = input('Did you read this book? ')
+                        if not read:
+                            print('please enter something')
+                            continue
+                        elif read.lower() in ['yes', 'no']:
+                            library[n]['already read'] = read.lower()
+                            print('Your book succesfully updated')
+                            break
+                        else:
+                            print('Please enter valid input! (yes or no) ')
+                            continue
+                    break
+    if not found:
+        print("Book isn't found in your library")
+    input('press enter key to countinue')      
 
 
 def main():
@@ -102,10 +147,11 @@ def main():
     while True:
         print('''
     Welcome to book list app please choose the process
-    click 1 for adding book
-    click 2 for listing book
-    click 3 for search book in books
-    click 4 for deleting the book
+    press 1 for adding book to your library
+    press 2 for listing books in your library
+    press 3 for search book in library
+    press 4 for deleting book from library
+    press 5 for configuring your library
     click 0 to quit
         ''')
         try:
@@ -119,6 +165,8 @@ def main():
                 find_book(library)
             elif uinput == 4:
                 del_book(library)
+            elif uinput == 5:
+                con_book(library)
             elif uinput == 0:
                 print('Have a great day! ')
                 break
@@ -128,6 +176,7 @@ def main():
         except ValueError:
             print('Please enter a valid number')
             time.sleep(2)
+
 
 if __name__ == '__main__':
     main()
