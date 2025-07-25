@@ -114,7 +114,7 @@ def con_book(library):
     found = False
     while not found:
         book = input('Enter the title of the book: (enter quitx for quit) ')
-        if book.lower == 'quitx':
+        if book.lower() == 'quitx':
             break
         elif not book:
             print('Enter title of the book')
