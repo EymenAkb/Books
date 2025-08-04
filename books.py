@@ -1,35 +1,55 @@
 import time
 
-def add_book(library):
-    nameb = input("What is the name of the book: ")
-    for i in library:
-        if nameb.lower() == i['name'].lower():
-            print('this book already exists! ')
-            time.sleep(2)
-            return
-        
+def get_title(library):
     while True:
-        pageb = input("How many pages are there: ")
+        a = input('Enter the title of the book (leave blank to quit): ')
+        if a == '':
+            print('Quitting')
+            return None
+        for i in library:
+            if a.lower() == i['name'].lower():
+                print('this book already exists!')
+                return None
+        return a.strip()
+
+def get_page():
+    while True:
+        i = input("How many pages are there: ")
         try:
-            pageb = int(pageb)
-            break
+            i = int(i)
+            return i
         except ValueError:
             print("Please enter a number!")
             time.sleep(0.5)
 
+def get_Read(library, i, j):
     while True:
-        readb = input("did you read this book (yes / no)").lower()
-        if readb in ['yes', 'no']:
-            book = {'name': nameb, 'page': pageb, 'already read': readb}
+        a = input("did you read this book (yes / no)").lower()
+        if a in ['yes', 'no']:
+            book = {'name': i, 'page': j, 'already read': a}
             library.append(book)
+            en_con()
             return library
         else:
             print("Please follow the instructions")
 
+def en_con():
+    input('Press enter key to continue')
 
+def em_mes():
+    print('\nYour library is empty')
+
+def add_book(library):
+    nameb = get_title(library)
+    if nameb is None:
+        en_con()
+        return 
+    pageb = get_page()
+    get_Read(library, nameb, pageb)
+    
 def list_book(library):
     if not library:
-        print('\n Your library is empty')
+        em_mes()
         time.sleep(1)
     else:
         for count, i in enumerate(library, start=1):
@@ -39,11 +59,12 @@ def list_book(library):
             print('Name:' + i['name'])
             print('Page:', i['page'])
             print('Already read: ' + i['already read'])
+    en_con()
 
 
 def find_book(library):
     if not library:
-        print('\n The library is empty ')
+        em_mes()
         time.sleep(1)
         return
     found = False
@@ -103,7 +124,7 @@ def del_book(library):
             print(f"There is no book named {book}.")
             break
     
-    input('Press any key to continue')
+    en_con()
 
 
 def con_book(library):
@@ -114,7 +135,7 @@ def con_book(library):
     found = False
     while not found:
         book = input('Enter the title of the book: (enter quitx for quit) ')
-        if book.lower == 'quitx':
+        if book.lower() == 'quitx':
             break
         elif not book:
             print('Enter title of the book')
@@ -130,7 +151,7 @@ def con_book(library):
                             continue
                         elif read.lower() in ['yes', 'no']:
                             library[n]['already read'] = read.lower()
-                            print('Your book succesfully updated')
+                            print('Your book was successfully updated')
                             break
                         else:
                             print('Please enter valid input! (yes or no) ')
@@ -138,7 +159,7 @@ def con_book(library):
                     break
     if not found:
         print("Book isn't found in your library")
-    input('press enter key to countinue')      
+    en_con()  
 
 
 def main():
@@ -160,7 +181,6 @@ def main():
                 add_book(library)
             elif uinput == 2:
                 list_book(library)
-                input(f'\n Press enter key to contunie ')
             elif uinput == 3:
                 find_book(library)
             elif uinput == 4:
