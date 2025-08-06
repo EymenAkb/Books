@@ -96,14 +96,13 @@ The book has {'not ' if i['already read'].lower() == 'no' else ''}been read befo
             print('Book not found in library!')
             time.sleep(1)
 
-    input('\n Press enter key to continue')
+    en_con()
 
 
 def del_book(library):
     if not library:
-        print("Library is empty! ")
-        time.sleep(1)
-        return
+        em_mes()
+        en_con()
     Found = False
     while not Found:
         book = input("Enter the title of the book to be deleted: (enter quitx to quit) ")
@@ -129,9 +128,8 @@ def del_book(library):
 
 def con_book(library):
     if not library:
-        print("Your library is empty!")
-        time.sleep(1)
-        return
+        em_mes()
+        en_con()
     found = False
     while not found:
         book = input('Enter the title of the book: (enter quitx for quit) ')
