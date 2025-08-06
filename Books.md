@@ -1,6 +1,6 @@
 # Books
 
-This repository was developed by **Themrblank** as part of learning Computing with Python.
+This repository was developed by **Eymen Akbulut** as part of learning Computing with Python.
 
 ## Description
 
