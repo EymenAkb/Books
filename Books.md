@@ -33,3 +33,5 @@ When you start the program, **the program will guide you** through the process.
 # Note
 
 This program **does not** save your library on your device.
+All added books exist only in memory while the program is running.
+When you close the program, the library is reset.
