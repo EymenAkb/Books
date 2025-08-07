@@ -8,7 +8,7 @@ This program is a basic console-based library program that allows you to:
 
 - `Add books` to your library,
 - `List books` from your library,
-- `Search books` from your library,
+- `Search books` in your library,
 - `Delete books` from your library,
 - `Configure books` from your library.
 
