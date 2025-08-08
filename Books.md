@@ -10,7 +10,7 @@ This program is a basic console-based library program that allows you to:
 - `List books` from your library,
 - `Search books` in your library,
 - `Delete books` from your library,
-- `Configure books` from your library.
+- `Configure books` in your library.
 
 The purpose of the project is learning conditions mentioned below:
 
